@@ -5,9 +5,16 @@ const dialog = document.querySelector('#booking-dialog');
 const form = document.querySelector('#booking-form');
 const success = document.querySelector('.booking-success');
 
-window.addEventListener('load', () => {
-  window.setTimeout(() => loader.classList.add('is-hidden'), 350);
-});
+function hideLoader() {
+  loader?.classList.add('is-hidden');
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => window.setTimeout(hideLoader, 180), { once: true });
+} else {
+  window.setTimeout(hideLoader, 180);
+}
+window.setTimeout(hideLoader, 1400);
 
 menuButton.addEventListener('click', () => {
   const open = document.body.classList.toggle('menu-open');
