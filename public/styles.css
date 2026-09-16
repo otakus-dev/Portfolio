@@ -51,6 +51,9 @@ img{display:block;max-width:100%}
 .project--dental .project-preview{background:#112a35}
 .project--dental .project-preview img{filter:saturate(.74);object-position:center}
 .project--dental .browser-bar{background:#dce7e3;color:#405c5c}
+.project--modul .project-preview{background:#b5beb2}
+.project--modul .project-preview img{object-position:center}
+.project--modul .browser-bar{background:#dce1d9;color:#1d2421}
 .preview-action{position:absolute;right:20px;bottom:20px;padding:11px 14px;background:var(--white);font-size:.78rem;font-weight:700}
 .project-info{padding:34px;display:flex;flex-direction:column}
 .project-number{color:var(--muted);font-size:.72rem}

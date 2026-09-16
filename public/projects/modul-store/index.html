@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="МОДУЛЬ — предметы для современного дома. Авторская мебель и свет от независимых дизайнеров.">
+  <title>МОДУЛЬ — мебель и свет</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+  <header class="header">
+    <button class="menu-button" type="button" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
+    <a class="brand" href="#top">МОДУЛЬ<sup>®</sup></a>
+    <nav aria-label="Основная навигация">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#journal">Журнал</a>
+    </nav>
+    <div class="header-actions">
+      <button class="search-button" type="button" aria-label="Поиск">Поиск</button>
+      <button class="cart-button" type="button">Корзина <span class="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-title">
+        <p>Коллекция 2026</p>
+        <h1>Вещи с<br>характером.</h1>
+        <a href="#catalog">Смотреть каталог <span>↘</span></a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1762755815418-914fd0250de5?auto=format&amp;fit=crop&amp;q=88&amp;w=1800" alt="Современное кресло в интерьерной композиции">
+        <div class="hero-tag"><b>01</b><span>Кресло TURN<br>новый цвет</span><strong>76 000 ₽</strong></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div><span>Мебель</span><i>·</i><span>Свет</span><i>·</i><span>Декор</span><i>·</i><span>Новые имена</span></div>
+    </div>
+
+    <section class="catalog section" id="catalog">
+      <div class="catalog-head reveal">
+        <h2>Новое в коллекции</h2>
+        <div class="filters" role="group" aria-label="Фильтр товаров">
+          <button class="is-active" type="button" data-filter="all">Все</button>
+          <button type="button" data-filter="chairs">Кресла</button>
+          <button type="button" data-filter="tables">Столы</button>
+          <button type="button" data-filter="light">Свет</button>
+        </div>
+      </div>
+
+      <div class="product-grid">
+        <article class="product reveal" data-category="chairs" data-id="turn" data-name="Кресло TURN" data-price="76000">
+          <button class="product-image add-button" type="button" aria-label="Добавить кресло TURN в корзину">
+            <img src="https://images.unsplash.com/photo-1762755815418-914fd0250de5?auto=format&amp;fit=crop&amp;q=84&amp;w=1000" alt="Жёлтое дизайнерское кресло TURN">
+            <span>Добавить +</span>
+          </button>
+          <div class="product-info"><h3>TURN</h3><p>Кресло · шерсть, дуб</p><strong>76 000 ₽</strong></div>
+        </article>
+        <article class="product reveal" data-category="chairs" data-id="solo" data-name="Стул SOLO" data-price="29500">
+          <button class="product-image add-button" type="button" aria-label="Добавить стул SOLO в корзину">
+            <img src="https://images.unsplash.com/photo-1761052180945-9fcefc9a07d5?auto=format&amp;fit=crop&amp;q=84&amp;w=1000" alt="Минималистичный стул SOLO">
+            <span>Добавить +</span>
+          </button>
+          <div class="product-info"><h3>SOLO</h3><p>Стул · металл, полимер</p><strong>29 500 ₽</strong></div>
+        </article>
+        <article class="product reveal" data-category="light" data-id="orb" data-name="Торшер ORB" data-price="42000">
+          <button class="product-image add-button" type="button" aria-label="Добавить торшер ORB в корзину">
+            <img src="https://images.unsplash.com/photo-1667322460204-3553eab6827e?auto=format&amp;fit=crop&amp;q=84&amp;w=1000" alt="Минималистичный торшер ORB">
+            <span>Добавить +</span>
+          </button>
+          <div class="product-info"><h3>ORB</h3><p>Торшер · сталь, стекло</p><strong>42 000 ₽</strong></div>
+        </article>
+        <article class="product reveal" data-category="chairs" data-id="soft" data-name="Кресло SOFT" data-price="68000">
+          <button class="product-image add-button" type="button" aria-label="Добавить кресло SOFT в корзину">
+            <img src="https://images.pexels.com/photos/16028460/pexels-photo-16028460/free-photo-of-a-modern-chair-in-an-empty-room.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Мягкое кресло SOFT в тёмном интерьере">
+            <span>Добавить +</span>
+          </button>
+          <div class="product-info"><h3>SOFT</h3><p>Кресло · букле, ясень</p><strong>68 000 ₽</strong></div>
+        </article>
+        <article class="product reveal" data-category="tables" data-id="axis" data-name="Стол AXIS" data-price="54000">
+          <button class="product-image add-button" type="button" aria-label="Добавить стол AXIS в корзину">
+            <img src="https://images.unsplash.com/photo-1762738499123-fb1e9771e11a?auto=format&amp;fit=crop&amp;q=84&amp;w=1000" alt="Стол AXIS и кресла в минималистичном интерьере">
+            <span>Добавить +</span>
+          </button>
+          <div class="product-info"><h3>AXIS</h3><p>Стол · камень, алюминий</p><strong>54 000 ₽</strong></div>
+        </article>
+        <article class="product reveal" data-category="chairs" data-id="arc" data-name="Стул ARC" data-price="34000">
+          <button class="product-image add-button" type="button" aria-label="Добавить стул ARC в корзину">
+            <img src="https://images.pexels.com/photos/7602901/pexels-photo-7602901.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Деревянный стул ARC в светлом пространстве">
+            <span>Добавить +</span>
+          </button>
+          <div class="product-info"><h3>ARC</h3><p>Стул · массив дуба</p><strong>34 000 ₽</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="manifesto" id="about">
+      <div class="manifesto-number reveal">02—26</div>
+      <div class="manifesto-copy">
+        <p class="label reveal">Наша позиция</p>
+        <h2 class="reveal">Дом не должен<br>быть похож<br>на каталог.</h2>
+        <p class="reveal">Мы собираем выразительные предметы, которые не спорят друг с другом. Российские мастерские, честные материалы и дизайн, рассчитанный на повседневную жизнь.</p>
+        <a class="underlined reveal" href="#journal">Кто создаёт МОДУЛЬ →</a>
+      </div>
+    </section>
+
+    <section class="editorial" id="journal">
+      <img src="https://images.unsplash.com/photo-1762738499123-fb1e9771e11a?auto=format&amp;fit=crop&amp;q=88&amp;w=1800" alt="Современная гостиная с дизайнерской мебелью">
+      <div class="editorial-card reveal">
+        <span>История / 07</span>
+        <h2>Как сочетать предметы, которые не входят в один гарнитур</h2>
+        <a href="#catalog">Читать материал ↗</a>
+      </div>
+    </section>
+
+    <section class="advantages section">
+      <article class="reveal"><span>01</span><h3>Можно потрогать</h3><p>Шоурум в Москве открыт каждый день. Все образцы материалов — на месте.</p></article>
+      <article class="reveal"><span>02</span><h3>Доставим бережно</h3><p>Собственная доставка по Москве. В регионы отправляем в надёжной обрешётке.</p></article>
+      <article class="reveal"><span>03</span><h3>Останемся на связи</h3><p>Гарантия два года и ремонт в мастерской даже после её окончания.</p></article>
+    </section>
+
+    <section class="subscribe">
+      <p class="label">Письма о хорошем дизайне</p>
+      <h2>Новинки, истории<br>и никакого шума.</h2>
+      <form><label><span class="sr-only">Электронная почта</span><input type="email" required placeholder="ВАША ПОЧТА"></label><button type="submit">Подписаться →</button></form>
+      <p class="subscribe-status" role="status"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#top">МОДУЛЬ<sup>®</sup></a>
+    <div><a href="tel:+74951234567">+7 495 123-45-67</a><a href="mailto:hello@modul.store">hello@modul.store</a></div>
+    <div><p>Москва, ул. Лесная, 20</p><p>Ежедневно 11:00–21:00</p></div>
+    <p>Демо-проект · Фото: <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>, <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a></p>
+  </footer>
+
+  <div class="cart-overlay" hidden></div>
+  <aside class="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-head"><h2 id="cart-title">Корзина <span class="cart-count">0</span></h2><button class="cart-close" type="button" aria-label="Закрыть корзину">×</button></div>
+    <div class="cart-items"><p class="cart-empty">Здесь пока пусто.<br>Добавьте предметы из каталога.</p></div>
+    <div class="cart-bottom" hidden><div><span>Итого</span><strong class="cart-total">0 ₽</strong></div><button type="button">Оформить заказ →</button><small>Это демонстрационный магазин. Оплата не производится.</small></div>
+  </aside>
+
+  <script src="script.js?v=1"></script>
+</body>
+</html>
