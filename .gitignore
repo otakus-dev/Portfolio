@@ -1,2 +1,4 @@
 .qa-edge*/
 *-check*.png
+node_modules/
+npm-debug.log*

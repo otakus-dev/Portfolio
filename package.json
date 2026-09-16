@@ -1,0 +1,13 @@
+{
+  "name": "andrei-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Персональный сайт-портфолио Андрея",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/script.js && node --check public/projects/ember/script.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
