@@ -5,7 +5,7 @@
   "description": "Персональный сайт-портфолио Андрея",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check public/script.js && node --check public/projects/ember/script.js && node --check public/projects/linea-dental/script.js && node --check public/projects/modul-store/script.js"
+    "check": "node --check server.js && node --check public/script.js && node --check public/projects/ember/script.js && node --check public/projects/linea-dental/script.js && node --check public/projects/modul-store/script.js && node --check public/projects/privilegia/script.js"
   },
   "engines": {
     "node": ">=18"
