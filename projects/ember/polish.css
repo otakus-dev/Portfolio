@@ -1,0 +1,28 @@
+html{scroll-behavior:auto}body{overflow-x:hidden}
+.portfolio-return{position:fixed;z-index:30;left:20px;bottom:20px;padding:11px 15px;border-radius:999px;background:rgba(16,15,14,.86);color:#f3e7d3;font:600 .75rem/1 "Manrope",sans-serif;letter-spacing:.03em;backdrop-filter:blur(8px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+.hero h1 em{font-family:"Playfair Display",Georgia,serif;font-size:.94em;font-weight:500;font-style:normal;letter-spacing:-.045em}
+.ticker{height:54px;justify-content:center;gap:clamp(24px,4vw,68px)}
+.photo-menu{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;border:0;align-items:start}
+.photo-menu .menu-card{min-height:0;padding:0 0 28px;border:0;background:transparent;overflow:hidden}
+.photo-menu .menu-card:hover,.photo-menu .menu-card.featured{background:transparent}
+.photo-menu .menu-card:nth-child(n){grid-column:auto;margin-top:0}
+.drink-photo,.photo-menu .menu-card:nth-child(2) .drink-photo,.photo-menu .menu-card:nth-child(3) .drink-photo{height:380px;margin:0 0 25px;overflow:hidden;background:#d8c7b2}
+.drink-photo img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.82) contrast(1.03);transition:transform .65s cubic-bezier(.2,.7,.2,1)}
+.menu-card:hover .drink-photo img{transform:scale(1.035)}
+.photo-menu .menu-number{position:absolute;z-index:2;top:14px;left:16px;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#f1e8d8;color:#33261d;font-size:.8rem}
+.photo-menu .price{top:auto;right:0;bottom:28px;color:#72513a}
+.photo-menu .menu-copy{padding-right:76px}
+.photo-menu .menu-copy h3{font-size:clamp(1.5rem,2.1vw,2.1rem)}
+.story-visual{background:#1a120e}
+.story-visual>img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.72) contrast(1.08)}
+.story-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 45%,rgba(15,10,7,.42))}
+.story-visual .stamp{z-index:2;background:rgba(18,12,9,.38);backdrop-filter:blur(4px)}
+.visit{display:block}
+.visit-title{margin-bottom:44px}
+.visit-info{width:100%;max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;align-items:end;gap:28px 44px;padding-top:30px;border-top:1px solid rgba(65,45,32,.2)}
+.visit .button{grid-column:auto;min-width:230px}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.is-visible{opacity:1;transform:none}
+@media(max-width:800px){.site-header .button-small{min-height:38px;padding:7px 10px;font-size:.72rem}.hero h1 em{font-size:.9em}.ticker{justify-content:flex-start}.photo-menu{grid-template-columns:1fr;gap:46px}.photo-menu .menu-card:nth-child(n){grid-column:1;margin-top:0}.drink-photo,.photo-menu .menu-card:nth-child(2) .drink-photo,.photo-menu .menu-card:nth-child(3) .drink-photo{height:330px}.story-visual>img{min-height:480px}.visit-title{margin-bottom:32px}.visit-info{grid-template-columns:1fr;align-items:start;gap:24px;padding-top:24px}.visit .button{grid-column:1;min-width:0;width:100%}}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}.drink-photo img{transition:none}}
+.js .reveal{opacity:1;transform:none}

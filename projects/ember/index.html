@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EMBER — кофейная мануфактура. Авторский кофе, собственная обжарка и камерная атмосфера в центре города.">
+  <title>EMBER — кофейная мануфактура</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23100f0e'/%3E%3Cpath d='M18 21h29v15c0 10-6 17-15 17S18 46 18 36V21Z' fill='none' stroke='%23c8824b' stroke-width='4'/%3E%3Cpath d='M47 26h3c8 0 8 12 0 12h-3M25 14c-4-5 4-6 0-11M37 14c-4-5 4-6 0-11' fill='none' stroke='%23f3e7d3' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="polish.css">
+</head>
+<body>
+  <a class="portfolio-return" href="../../">← Портфолио Андрея</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="EMBER, на главную">
+      <span class="brand-mark">E</span>
+      <span>EMBER</span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <a href="#menu">Меню</a>
+      <a href="#story">О нас</a>
+      <a href="#visit">Контакты</a>
+    </nav>
+    <button class="button button-small open-booking" type="button">Забронировать</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="assets/ember-hero.png" alt="Эспрессо в керамической чашке рядом со свежим круассаном" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Кофейная мануфактура · с 2018 года</p>
+        <h1>Кофе, в котором<br><em>остаётся тепло</em></h1>
+        <p class="hero-lead">Обжариваем зерно небольшими партиями и готовим каждую чашку как личную историю.</p>
+        <div class="hero-actions">
+          <a class="button" href="#menu">Открыть меню</a>
+          <button class="text-button open-booking" type="button">Забронировать столик <span>↗</span></button>
+        </div>
+      </div>
+      <div class="hero-note"><span>Сегодня</span> работаем до 23:00</div>
+    </section>
+
+    <section class="ticker" aria-label="Особенности кофейни">
+      <span>Собственная обжарка</span><i>✦</i><span>Зерно из 12 регионов</span><i>✦</i><span>Свежая выпечка каждый день</span><i>✦</i><span>Альтернативные способы</span>
+    </section>
+
+    <section class="menu section" id="menu">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Выбор бариста</p>
+          <h2>Три характера<br>одного зерна</h2>
+        </div>
+        <p>Меню меняется вместе с урожаем. Эти напитки — наша постоянная основа.</p>
+      </div>
+      <div class="menu-grid photo-menu">
+        <article class="menu-card featured reveal">
+          <div class="menu-number">01</div>
+          <figure class="drink-photo"><img src="https://images.unsplash.com/photo-1738560514885-a1dd0620b65e?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Эспрессо в чёрной керамической чашке" loading="lazy"></figure>
+          <div class="menu-copy"><h3>Black Ember</h3><p>Двойной эспрессо · какао · тёмная вишня</p></div>
+          <div class="price">260 ₽</div>
+        </article>
+        <article class="menu-card reveal">
+          <div class="menu-number">02</div>
+          <figure class="drink-photo"><img src="https://images.unsplash.com/photo-1517640033243-dc06bb716df5?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Флэт уайт с латте-артом" loading="lazy"></figure>
+          <div class="menu-copy"><h3>Silk Flat</h3><p>Эспрессо · фермерское молоко · карамель</p></div>
+          <div class="price">340 ₽</div>
+        </article>
+        <article class="menu-card reveal">
+          <div class="menu-number">03</div>
+          <figure class="drink-photo"><img src="https://images.unsplash.com/photo-1747852222501-e03aeccd2093?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Приготовление фильтр-кофе через V60" loading="lazy"></figure>
+          <div class="menu-copy"><h3>Slow Bloom</h3><p>Эфиопия · жасмин · бергамот · V60</p></div>
+          <div class="price">380 ₽</div>
+        </article>
+      </div>
+      <a class="menu-link" href="#visit">Полное меню — в кофейне <span>→</span></a>
+    </section>
+
+    <section class="story section" id="story">
+      <div class="story-visual reveal" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1655998712100-974c84f586a5?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="" loading="lazy">
+        <div class="stamp"><b>EMBER</b><small>ROASTED<br>WITH CARE</small></div>
+      </div>
+      <div class="story-copy">
+        <p class="eyebrow">От фермы до чашки</p>
+        <h2>Мы знаем имя<br>каждого зерна</h2>
+        <p class="lead">Работаем напрямую с небольшими фермами и выбираем лоты, в которых вкус рождается не из горечи, а из места, климата и труда людей.</p>
+        <div class="facts">
+          <div><strong>12</strong><span>регионов происхождения</span></div>
+          <div><strong>48 ч</strong><span>от обжарки до витрины</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit section" id="visit">
+      <div class="visit-title">
+        <p class="eyebrow">Загляните на огонёк</p>
+        <h2>Ваш столик<br>уже ждёт</h2>
+      </div>
+      <div class="visit-info">
+        <div><span>Адрес</span><p>ул. Тихая, 12<br>центр города</p></div>
+        <div><span>Часы</span><p>Пн–Пт: 08:00–23:00<br>Сб–Вс: 09:00–23:00</p></div>
+        <button class="button open-booking" type="button">Забронировать столик</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><span class="brand-mark">E</span><span>EMBER</span></a>
+    <p>Кофе, люди и немного огня.</p>
+    <p>© 2026 EMBER</p>
+  </footer>
+
+  <dialog id="booking-dialog" aria-labelledby="booking-title">
+    <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+    <div id="booking-form-wrap">
+      <p class="eyebrow">Бронирование</p>
+      <h2 id="booking-title">Оставим для вас<br>лучший столик</h2>
+      <form id="booking-form">
+        <label>Ваше имя<input name="name" autocomplete="name" required placeholder="Александр"></label>
+        <label>Телефон<input name="phone" type="tel" autocomplete="tel" required placeholder="+7 900 000-00-00"></label>
+        <div class="form-row">
+          <label>Дата<input name="date" type="date" required></label>
+          <label>Гостей<select name="guests"><option>1 гость</option><option selected>2 гостя</option><option>3 гостя</option><option>4 гостя</option><option>5+ гостей</option></select></label>
+        </div>
+        <button class="button" type="submit">Отправить заявку</button>
+        <small>Мы перезвоним, чтобы подтвердить бронь.</small>
+      </form>
+    </div>
+    <div class="booking-success" id="booking-success" hidden>
+      <div class="success-mark">✓</div>
+      <h2>Столик почти ваш</h2>
+      <p>Заявка принята. Администратор свяжется с вами для подтверждения.</p>
+      <button class="button dialog-done" type="button">Готово</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
