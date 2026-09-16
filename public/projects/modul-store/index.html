@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <header class="header">
@@ -139,6 +139,12 @@
     <p>Демо-проект · Фото: <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>, <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a></p>
   </footer>
 
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="search-head"><h2 id="search-title">Поиск</h2><button class="search-close" type="button" aria-label="Закрыть поиск">×</button></div>
+    <label><span class="sr-only">Название товара</span><input id="search-input" type="search" placeholder="Например, кресло или TURN" autocomplete="off"></label>
+    <div class="search-results" aria-live="polite"><p>Начните вводить название или тип предмета.</p></div>
+  </dialog>
+
   <div class="cart-overlay" hidden></div>
   <aside class="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
     <div class="cart-head"><h2 id="cart-title">Корзина <span class="cart-count">0</span></h2><button class="cart-close" type="button" aria-label="Закрыть корзину">×</button></div>
@@ -146,6 +152,6 @@
     <div class="cart-bottom" hidden><div><span>Итого</span><strong class="cart-total">0 ₽</strong></div><button type="button">Оформить заказ →</button><small>Это демонстрационный магазин. Оплата не производится.</small></div>
   </aside>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

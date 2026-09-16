@@ -4,6 +4,9 @@ const cartDrawer = document.querySelector('.cart-drawer');
 const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartBottom = document.querySelector('.cart-bottom');
+const searchDialog = document.querySelector('#search-dialog');
+const searchInput = document.querySelector('#search-input');
+const searchResults = document.querySelector('.search-results');
 const formatter = new Intl.NumberFormat('ru-RU');
 const cart = new Map();
 
@@ -35,6 +38,54 @@ document.querySelectorAll('.filters button').forEach((button) => {
       product.classList.toggle('is-hidden', filter !== 'all' && product.dataset.category !== filter);
     });
   });
+});
+
+const searchableProducts = [...document.querySelectorAll('.product')].map((product) => ({
+  id: product.dataset.id,
+  name: product.dataset.name,
+  category: product.querySelector('.product-info p').textContent,
+  price: Number(product.dataset.price),
+  element: product
+}));
+
+function renderSearchResults(query) {
+  const normalized = query.trim().toLocaleLowerCase('ru');
+  if (!normalized) {
+    searchResults.innerHTML = '<p>Начните вводить название или тип предмета.</p>';
+    return;
+  }
+  const matches = searchableProducts.filter((product) =>
+    `${product.name} ${product.category}`.toLocaleLowerCase('ru').includes(normalized)
+  );
+  searchResults.innerHTML = matches.length ? matches.map((product) => `
+    <button class="search-result" type="button" data-result="${product.id}">
+      <b>${product.name}</b><span>${formatter.format(product.price)} ₽</span>
+    </button>`).join('') : '<p>Ничего не найдено. Попробуйте другое слово.</p>';
+}
+
+document.querySelector('.search-button').addEventListener('click', () => {
+  renderSearchResults('');
+  searchDialog.showModal();
+  document.body.classList.add('locked');
+  window.setTimeout(() => searchInput.focus(), 50);
+});
+document.querySelector('.search-close').addEventListener('click', () => searchDialog.close());
+searchDialog.addEventListener('click', (event) => { if (event.target === searchDialog) searchDialog.close(); });
+searchDialog.addEventListener('close', () => {
+  document.body.classList.remove('locked');
+  searchInput.value = '';
+});
+searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+searchResults.addEventListener('click', (event) => {
+  const result = event.target.closest('[data-result]');
+  if (!result) return;
+  const product = searchableProducts.find((item) => item.id === result.dataset.result);
+  document.querySelector('[data-filter="all"]').click();
+  searchDialog.close();
+  product.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  product.element.classList.remove('search-focus');
+  window.setTimeout(() => product.element.classList.add('search-focus'), 250);
+  window.setTimeout(() => product.element.classList.remove('search-focus'), 1800);
 });
 
 function updateCart() {
