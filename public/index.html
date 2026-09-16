@@ -3,140 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Портфолио Андрея — дизайн и разработка современных сайтов для бизнеса.">
-  <title>Андрей — сайты для бизнеса</title>
+  <meta name="description" content="Андрей — дизайн и разработка современных сайтов для малого бизнеса и специалистов.">
+  <title>Андрей — дизайн и разработка сайтов</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Prata&amp;display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e8ecf2'/%3E%3Cpath d='M17 46 28 17h8l11 29h-8l-2-7H27l-2 7h-8Zm12-14h6l-3-10-3 10Z' fill='%23364f75'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e7edf3'/%3E%3Cpath d='M17 46 28 17h8l11 29h-8l-2-7H27l-2 7h-8Zm12-14h6l-3-10-3 10Z' fill='%232d405c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#top" aria-label="На главную">А.</a>
-    <nav aria-label="Основная навигация">
-      <a href="#work">Работы</a>
-      <a href="#services">Услуги</a>
-      <a href="#about">Обо мне</a>
-    </nav>
-    <a class="header-cta" href="#contact">Обсудить проект</a>
+  <header class="mobile-header">
+    <a class="monogram" href="#top" aria-label="Наверх">А</a>
+    <button class="text-link open-contact" type="button">Написать мне</button>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="availability"><i></i> Открыт к новым проектам</div>
-      <p class="hero-kicker">Веб-дизайн · разработка · запуск</p>
-      <h1>Сайты, которые<br><span>выглядят<br class="mobile-only"> уверенно</span>и говорят<br class="mobile-only"> по делу.</h1>
-      <div class="hero-bottom">
-        <p>Помогаю малому бизнесу и специалистам упаковать идею в понятный, выразительный и удобный сайт.</p>
-        <a class="round-link" href="#work" aria-label="Смотреть работы">↓</a>
+  <aside class="sidebar" aria-label="Навигация по портфолио">
+    <a class="monogram" href="#top" aria-label="Наверх">А</a>
+    <div class="sidebar-intro">
+      <strong>Андрей</strong>
+      <span>Дизайн и разработка сайтов</span>
+    </div>
+    <nav>
+      <a href="#projects"><span>01</span> Проекты</a>
+      <a href="#services"><span>02</span> Услуги</a>
+      <a href="#approach"><span>03</span> Подход</a>
+      <a href="#contacts"><span>04</span> Контакты</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <p>Работаю удалённо<br>по всей России</p>
+      <button class="primary-button open-contact" type="button">Написать мне <span>↗</span></button>
+    </div>
+  </aside>
+
+  <main class="content" id="top">
+    <section class="intro section-pad">
+      <div class="intro-topline">
+        <span>Веб-дизайн / разработка / запуск</span>
+        <span class="availability"><i></i> Беру новые проекты</span>
+      </div>
+      <div class="intro-grid">
+        <h1>Сайты для бизнеса,<br>которому важно<br><em>выглядеть убедительно.</em></h1>
+        <div class="intro-side">
+          <p>Помогаю превратить идею, услугу или продукт в ясный и выразительный цифровой образ.</p>
+          <button class="primary-button open-contact" type="button">Обсудить проект <span>↗</span></button>
+        </div>
+      </div>
+      <div class="capabilities" aria-label="Направления работы">
+        <span>Лендинги</span><span>Сайты компаний</span><span>Портфолио</span><span>Редизайн</span>
       </div>
     </section>
 
-    <section class="work-section" id="work">
-      <div class="section-heading">
-        <p class="section-number">01</p>
-        <div>
-          <p class="eyebrow">Выбранная работа</p>
-          <h2>Проекты, в которых<br>дизайн работает на задачу</h2>
-        </div>
+    <section class="projects section-pad" id="projects">
+      <div class="section-title">
+        <p>01 / Проекты</p>
+        <h2>Выбранная работа</h2>
       </div>
-
-      <article class="project-card">
-        <a class="project-visual" href="projects/ember/index.html" target="_blank" rel="noopener" aria-label="Открыть проект EMBER в новой вкладке">
+      <article class="project">
+        <a class="project-preview" href="projects/ember/index.html" target="_blank" rel="noopener" aria-label="Открыть сайт EMBER в новой вкладке">
+          <div class="browser-bar"><i></i><i></i><i></i><span>ember.coffee</span></div>
           <img src="assets/ember-cover.png" alt="Первый экран сайта кофейни EMBER">
-          <span class="project-open">Открыть сайт ↗</span>
+          <span class="preview-action">Открыть сайт ↗</span>
         </a>
-        <div class="project-meta">
-          <div>
-            <p class="project-index">Проект 001</p>
-            <h3>EMBER</h3>
-            <p>Концепт сайта городской кофейной мануфактуры: атмосферная подача, меню и бронирование.</p>
-          </div>
-          <ul aria-label="Категории проекта">
-            <li>Концепция</li>
-            <li>Веб-дизайн</li>
-            <li>Разработка</li>
-            <li>Адаптив</li>
-          </ul>
+        <div class="project-info">
+          <div><span class="project-number">001</span><h3>EMBER</h3></div>
+          <p>Сайт городской кофейной мануфактуры с меню, историей бренда и бронированием столика.</p>
+          <ul><li>Концепция</li><li>Дизайн</li><li>Разработка</li><li>Адаптив</li></ul>
         </div>
       </article>
     </section>
 
-    <section class="services-section" id="services">
-      <div class="section-heading dark-heading">
-        <p class="section-number">02</p>
-        <div>
-          <p class="eyebrow">Чем могу помочь</p>
-          <h2>От идеи до сайта,<br>готового к запуску</h2>
-        </div>
+    <section class="services section-pad" id="services">
+      <div class="section-title">
+        <p>02 / Услуги</p>
+        <h2>Что я могу сделать</h2>
       </div>
-      <div class="services-grid">
-        <article class="service-card">
-          <span>01</span>
-          <h3>Лендинг</h3>
-          <p>Одностраничный сайт для услуги, продукта или события с ясной структурой и сильной подачей.</p>
-        </article>
-        <article class="service-card">
-          <span>02</span>
-          <h3>Сайт компании</h3>
-          <p>Несколько страниц, продуманная навигация и единый визуальный образ для бизнеса.</p>
-        </article>
-        <article class="service-card">
-          <span>03</span>
-          <h3>Доработка</h3>
-          <p>Обновление дизайна, адаптация под телефоны, новые блоки и улучшение существующего сайта.</p>
-        </article>
+      <div class="service-list">
+        <article><span>01</span><h3>Лендинг</h3><p>Соберу убедительную одностраничную презентацию услуги, продукта или события.</p></article>
+        <article><span>02</span><h3>Сайт компании</h3><p>Продуманные страницы и навигация, которые понятно рассказывают о вашем бизнесе.</p></article>
+        <article><span>03</span><h3>Редизайн</h3><p>Пересоберу устаревший сайт, сохранив полезное и убрав всё, что мешает пользователю.</p></article>
       </div>
     </section>
 
-    <section class="about-section" id="about">
-      <div class="about-label">
-        <p class="section-number">03</p>
-        <p class="eyebrow">Подход</p>
+    <section class="approach section-pad" id="approach">
+      <div class="section-title">
+        <p>03 / Подход</p>
+        <h2>Один специалист,<br>единый результат</h2>
       </div>
-      <div class="about-copy">
-        <h2>Не собираю страницы из случайных блоков. Сначала разбираюсь, что нужно сказать клиенту — и только потом превращаю это в дизайн.</h2>
-        <div class="about-notes">
-          <p>Веду проект целиком: помогаю со структурой, собираю визуальную систему, адаптирую сайт под разные экраны и довожу его до запуска.</p>
-          <p>Использую современные инструменты и ИИ там, где это ускоряет работу, но каждое решение проверяю и дорабатываю вручную.</p>
-        </div>
+      <div class="approach-grid">
+        <p class="approach-lead">Не передаю проект между дизайнерами и разработчиками. Отвечаю за весь путь — от первой схемы до работающего сайта.</p>
+        <ol>
+          <li><b>01</b><span><strong>Погружение</strong>Разбираюсь в задаче, продукте и аудитории.</span></li>
+          <li><b>02</b><span><strong>Концепция</strong>Собираю структуру и визуальное направление.</span></li>
+          <li><b>03</b><span><strong>Разработка</strong>Верстаю, адаптирую и настраиваю сценарии.</span></li>
+          <li><b>04</b><span><strong>Запуск</strong>Проверяю, публикую и помогаю с обновлениями.</span></li>
+        </ol>
       </div>
     </section>
 
-    <section class="process-section" id="process">
-      <div class="section-heading">
-        <p class="section-number">04</p>
-        <div>
-          <p class="eyebrow">Как строится работа</p>
-          <h2>Понятный путь<br>без лишней суеты</h2>
-        </div>
+    <section class="contacts section-pad" id="contacts">
+      <div>
+        <p class="section-label">04 / Контакты</p>
+        <h2>Есть задача?<br><em>Давайте обсудим.</em></h2>
       </div>
-      <ol class="process-list">
-        <li><span>01</span><h3>Знакомство</h3><p>Обсуждаем задачу, аудиторию, содержание и желаемый результат.</p></li>
-        <li><span>02</span><h3>Концепция</h3><p>Определяю структуру и визуальное направление будущего сайта.</p></li>
-        <li><span>03</span><h3>Сборка</h3><p>Создаю адаптивные страницы, анимации и нужные сценарии.</p></li>
-        <li><span>04</span><h3>Запуск</h3><p>Проверяю сайт, подключаю адрес и помогаю опубликовать проект.</p></li>
-      </ol>
+      <div class="contact-actions">
+        <button class="primary-button open-contact" type="button">Написать мне <span>↗</span></button>
+        <a href="mailto:ermohinandrei@bk.ru">ermohinandrei@bk.ru</a>
+        <a href="tel:+79939308672">+7 993 930 86 72</a>
+        <a href="https://t.me/Andrew132121" target="_blank" rel="noopener">Telegram ↗</a>
+      </div>
     </section>
 
-    <section class="contact-section" id="contact">
-      <p class="eyebrow">Есть задача?</p>
-      <h2>Давайте сделаем<br><span>сильный сайт.</span></h2>
-      <div class="contact-grid">
-        <a href="mailto:ermohinandrei@bk.ru"><small>Почта</small><span>ermohinandrei@bk.ru</span></a>
-        <a href="tel:+79939308672"><small>Телефон</small><span>+7 993 930 86 72</span></a>
-        <a class="telegram-button" href="https://t.me/Andrew132121" target="_blank" rel="noopener">Написать в Telegram <span>↗</span></a>
-      </div>
-    </section>
+    <footer><span>© 2026 Андрей</span><span>Дизайн и разработка сайтов</span></footer>
   </main>
 
-  <footer>
-    <a class="logo" href="#top">А.</a>
-    <p>Дизайн и разработка сайтов</p>
-    <p>© 2026 Андрей</p>
-  </footer>
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <div class="dialog-layout">
+      <div class="dialog-intro">
+        <p>Новый проект</p>
+        <h2 id="contact-title">Расскажите,<br>как с вами связаться</h2>
+        <span>Отвечу на указанную почту или телефон и уточню детали задачи.</span>
+      </div>
+      <div class="dialog-form-wrap">
+        <button class="dialog-close" type="button" aria-label="Закрыть форму">×</button>
+        <form id="contact-form">
+          <label>Ваше имя<input name="name" autocomplete="name" required maxlength="80" placeholder="Александр"></label>
+          <label>Электронная почта<input name="email" type="email" autocomplete="email" required maxlength="160" placeholder="name@example.ru"></label>
+          <label>Телефон<input name="phone" type="tel" autocomplete="tel" required maxlength="30" pattern="[+0-9 ()-]{7,30}" placeholder="+7 900 000-00-00"></label>
+          <label class="honeypot" aria-hidden="true">Ваш сайт<input name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="consent"><input name="consent" type="checkbox" required><span>Даю согласие на обработку имени, электронной почты и телефона для ответа на моё обращение.</span></label>
+          <details class="consent-details">
+            <summary>Как используются данные</summary>
+            <p>Данные отправляются владельцу сайта по электронной почте, не публикуются и не сохраняются в базе. Согласие можно отозвать, написав на <a href="mailto:ermohinandrei@bk.ru">ermohinandrei@bk.ru</a>.</p>
+          </details>
+          <button class="primary-button submit-button" type="submit">Отправить заявку <span>→</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="form-success" id="form-success" hidden>
+          <span>Готово</span>
+          <h3>Заявка отправлена</h3>
+          <p>Спасибо! Я получил ваши контакты и свяжусь с вами.</p>
+          <button class="secondary-button dialog-done" type="button">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
