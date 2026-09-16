@@ -41,12 +41,16 @@ img{display:block;max-width:100%}
 .section-title h2{margin:0;font-family:"Prata",Georgia,serif;font-size:clamp(2.4rem,4vw,4.8rem);font-weight:400;line-height:1}
 .projects{background:var(--white)}
 .project{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.45fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.project+.project{border-top:0}
 .project-preview{position:relative;overflow:hidden;border-right:1px solid var(--line);background:#241a15}
 .browser-bar{height:40px;padding:0 14px;display:flex;align-items:center;gap:6px;background:#dde2e7;color:#667083;font-size:.67rem}
 .browser-bar i{width:7px;height:7px;border-radius:50%;background:#a9b1bd}
 .browser-bar span{margin-left:auto;margin-right:auto}
 .project-preview img{width:100%;height:clamp(440px,48vw,680px);object-fit:cover;transition:transform .55s ease}
 .project-preview:hover img{transform:scale(1.015)}
+.project--dental .project-preview{background:#112a35}
+.project--dental .project-preview img{filter:saturate(.74);object-position:center}
+.project--dental .browser-bar{background:#dce7e3;color:#405c5c}
 .preview-action{position:absolute;right:20px;bottom:20px;padding:11px 14px;background:var(--white);font-size:.78rem;font-weight:700}
 .project-info{padding:34px;display:flex;flex-direction:column}
 .project-number{color:var(--muted);font-size:.72rem}
