@@ -1,16 +1,12 @@
 const http = require('node:http');
-const tls = require('node:tls');
 const { createReadStream, existsSync, statSync } = require('node:fs');
 const { extname, join, normalize, resolve, sep } = require('node:path');
 
 const host = '0.0.0.0';
 const port = Number(process.env.PORT || 3000);
 const publicRoot = resolve(__dirname, 'public');
-const recipient = process.env.CONTACT_TO || 'ermohinandrei@bk.ru';
-const smtpHost = process.env.SMTP_HOST || 'smtp.mail.ru';
-const smtpPort = Number(process.env.SMTP_PORT || 465);
-const smtpUser = process.env.SMTP_USER || 'ermohinandrei@bk.ru';
-const smtpPassword = process.env.SMTP_PASS || '';
+const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || '';
+const formSecret = process.env.FORM_SECRET || '';
 const submissionLog = new Map();
 
 const mimeTypes = {
@@ -57,98 +53,20 @@ function sanitizeLine(value, maxLength) {
   return String(value || '').replace(/[\r\n\0]/g, ' ').trim().slice(0, maxLength);
 }
 
-function encodeHeader(value) {
-  return `=?UTF-8?B?${Buffer.from(value, 'utf8').toString('base64')}?=`;
-}
-
-function createSmtpSession(socket) {
-  const completed = [];
-  const waiters = [];
-  let activeResponse = null;
-  let buffer = '';
-
-  function deliver(response) {
-    const waiter = waiters.shift();
-    if (waiter) waiter.resolve(response);
-    else completed.push(response);
-  }
-
-  socket.on('data', (chunk) => {
-    buffer += chunk.toString('utf8');
-    while (buffer.includes('\n')) {
-      const breakIndex = buffer.indexOf('\n');
-      const line = buffer.slice(0, breakIndex).replace(/\r$/, '');
-      buffer = buffer.slice(breakIndex + 1);
-      const match = line.match(/^(\d{3})([ -])(.*)$/);
-      if (!match) continue;
-      if (!activeResponse) activeResponse = { code: Number(match[1]), lines: [] };
-      activeResponse.lines.push(match[3]);
-      if (match[2] === ' ') {
-        deliver(activeResponse);
-        activeResponse = null;
-      }
-    }
-  });
-
-  socket.on('error', (error) => {
-    while (waiters.length) waiters.shift().reject(error);
-  });
-
-  function nextResponse() {
-    if (completed.length) return Promise.resolve(completed.shift());
-    return new Promise((resolveResponse, rejectResponse) => waiters.push({ resolve: resolveResponse, reject: rejectResponse }));
-  }
-
-  async function command(text, expectedCodes) {
-    socket.write(`${text}\r\n`);
-    const response = await nextResponse();
-    if (!expectedCodes.includes(response.code)) throw new Error(`SMTP_${response.code}`);
-    return response;
-  }
-
-  return { command, nextResponse };
-}
-
 async function sendContactEmail({ name, email, phone }) {
-  if (!smtpPassword) throw new Error('SMTP_NOT_CONFIGURED');
-  const socket = tls.connect({ host: smtpHost, port: smtpPort, servername: smtpHost, rejectUnauthorized: true });
-  socket.setTimeout(15_000, () => socket.destroy(new Error('SMTP_TIMEOUT')));
-  await new Promise((resolveConnection, rejectConnection) => {
-    socket.once('secureConnect', resolveConnection);
-    socket.once('error', rejectConnection);
+  if (!googleScriptUrl || !formSecret) throw new Error('MAIL_GATEWAY_NOT_CONFIGURED');
+
+  const gatewayResponse = await fetch(googleScriptUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ secret: formSecret, name, email, phone, consent: true }),
+    redirect: 'follow',
+    signal: AbortSignal.timeout(10_000)
   });
+  if (!gatewayResponse.ok) throw new Error(`MAIL_GATEWAY_HTTP_${gatewayResponse.status}`);
 
-  const session = createSmtpSession(socket);
-  const greeting = await session.nextResponse();
-  if (greeting.code !== 220) throw new Error(`SMTP_${greeting.code}`);
-  await session.command('EHLO portfolio-site', [250]);
-  await session.command('AUTH LOGIN', [334]);
-  await session.command(Buffer.from(smtpUser).toString('base64'), [334]);
-  await session.command(Buffer.from(smtpPassword).toString('base64'), [235]);
-  await session.command(`MAIL FROM:<${smtpUser}>`, [250]);
-  await session.command(`RCPT TO:<${recipient}>`, [250, 251]);
-  await session.command('DATA', [354]);
-
-  const submittedAt = new Intl.DateTimeFormat('ru-RU', {
-    dateStyle: 'long', timeStyle: 'short', timeZone: 'Asia/Yekaterinburg'
-  }).format(new Date());
-  const body = [
-    'Новая заявка с сайта-портфолио', '', `Имя: ${name}`, `Почта: ${email}`,
-    `Телефон: ${phone}`, `Отправлено: ${submittedAt}`, '',
-    'Посетитель подтвердил согласие на обработку указанных персональных данных для ответа на обращение.'
-  ].join('\r\n').replace(/^\./gm, '..');
-  const message = [
-    `From: ${encodeHeader('Сайт-портфолио')} <${smtpUser}>`, `To: <${recipient}>`,
-    `Reply-To: <${email}>`, `Subject: ${encodeHeader(`Новая заявка с сайта — ${name}`)}`,
-    'MIME-Version: 1.0', 'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit', '', body
-  ].join('\r\n');
-
-  socket.write(`${message}\r\n.\r\n`);
-  const accepted = await session.nextResponse();
-  if (accepted.code !== 250) throw new Error(`SMTP_${accepted.code}`);
-  await session.command('QUIT', [221]);
-  socket.end();
+  const result = await gatewayResponse.json().catch(() => null);
+  if (!result?.ok) throw new Error(`MAIL_GATEWAY_${result?.error || 'INVALID_RESPONSE'}`);
 }
 
 async function handleContactRequest(request, response) {
@@ -184,7 +102,7 @@ async function handleContactRequest(request, response) {
     await sendContactEmail({ name, email, phone });
     sendJson(response, 200, { ok: true });
   } catch (error) {
-    const notConfigured = error.message === 'SMTP_NOT_CONFIGURED';
+    const notConfigured = error.message === 'MAIL_GATEWAY_NOT_CONFIGURED';
     if (!notConfigured) console.error('Contact form delivery failed:', error.message);
     sendJson(response, 503, { message: notConfigured ? 'Отправка заявок ещё не настроена.' : 'Почтовый сервис временно недоступен.' });
   }
