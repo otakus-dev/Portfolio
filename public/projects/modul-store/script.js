@@ -148,7 +148,7 @@ cartItems.addEventListener('click', (event) => {
 document.querySelector('.subscribe form').addEventListener('submit', (event) => {
   event.preventDefault();
   event.currentTarget.reset();
-  document.querySelector('.subscribe-status').textContent = 'Спасибо! Первое письмо уже готовим.';
+  document.querySelector('.subscribe-status').textContent = 'Демонстрация подписки завершена. Адрес не отправлен, письма не будут приходить.';
 });
 
 document.querySelector('.cart-bottom>button').addEventListener('click', () => {

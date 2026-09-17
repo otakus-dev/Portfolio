@@ -46,7 +46,7 @@ const counterObserver = new IntersectionObserver((entries) => {
     const target = Number(element.dataset.counter);
     const decimal = element.dataset.decimal === 'true';
     const start = performance.now();
-    const duration = 1100;
+    const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1100;
     const animate = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);

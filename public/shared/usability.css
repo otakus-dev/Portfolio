@@ -1,0 +1,10 @@
+/* Small interaction improvements shared by all portfolio sites. */
+:where(a,button,input,select,summary):focus-visible{outline:2px solid currentColor;outline-offset:5px}
+:where(section[id],article[id],form[id]){scroll-margin-top:110px}
+dialog[open]{max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain}
+body:has(dialog[open]){overflow:hidden}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ .reveal,.reveal-image{opacity:1!important;transform:none!important}
+}
