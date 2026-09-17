@@ -97,6 +97,14 @@ img{display:block;max-width:100%}
 .rtk-cover-copy>span{margin-top:clamp(28px,4vw,56px);padding-top:10px;border-top:2px solid #f04b23;font-size:clamp(.44rem,.67vw,.73rem);text-transform:uppercase;letter-spacing:.08em}
 .project-preview:hover .rtk-cover img{transform:scale(1.015)}
 .project--rtk .project-info h3{font-family:"Manrope",Arial,sans-serif;font-size:clamp(2.8rem,5vw,5.4rem);font-weight:700;letter-spacing:-.07em}
+.hotel-project-section{background:var(--white);padding-top:0}
+.lesnoy-cover{height:clamp(440px,48vw,680px);display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:20px;padding:30px;background:#f8f5ee;color:#344b51}
+.lesnoy-cover>div{min-width:0;position:relative;z-index:1}.lesnoy-cover small{display:block;font:9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;margin-bottom:35px}
+.lesnoy-cover strong{display:block;font:400 clamp(1.7rem,3.5vw,3.8rem)/1.08 Georgia,serif;letter-spacing:-.045em}
+.lesnoy-cover span{display:block;margin-top:32px;font-size:10px}
+.project-preview .lesnoy-cover img{height:85%;max-height:none;min-width:0;border-radius:48% 48% 3px 3px;object-position:50% 65%}
+.project--lesnoy .project-info h3{font-size:clamp(2rem,3vw,3rem)}
+@media(max-width:640px){.lesnoy-cover{height:116vw;max-height:520px;padding:20px 15px;gap:12px}.lesnoy-cover strong{font-size:clamp(1.5rem,6.8vw,2.6rem)}.lesnoy-cover small{font-size:7px}.lesnoy-cover span{font-size:8px}}
 .preview-action{position:absolute;right:20px;bottom:20px;padding:11px 14px;background:var(--white);font-size:.78rem;font-weight:700}
 .project-info{padding:34px;display:flex;flex-direction:column}
 .project-number{color:var(--muted);font-size:.72rem}
