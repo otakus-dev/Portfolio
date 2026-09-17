@@ -29,7 +29,10 @@ document.querySelector('.dialog-done').addEventListener('click', () => {
 });
 
 dialog.addEventListener('click', (event) => {
-  if (event.target === dialog) closeContactDialog();
+  if (event.target === dialog) {
+    const r = dialog.getBoundingClientRect();
+    if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeContactDialog();
+  }
 });
 
 dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));

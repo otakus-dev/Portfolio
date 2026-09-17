@@ -17,7 +17,7 @@ document.querySelector('.dialog-close').addEventListener('click', () => dialog.c
 document.querySelector('.dialog-done').addEventListener('click', () => dialog.close());
 
 dialog.addEventListener('click', (event) => {
-  if (event.target === dialog) dialog.close();
+  if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); }
 });
 
 form.addEventListener('submit', (event) => {
@@ -28,7 +28,8 @@ form.addEventListener('submit', (event) => {
 });
 
 const dateInput = form.elements.date;
-dateInput.min = new Date().toISOString().slice(0, 10);
+const localToday = new Date();
+dateInput.min = [localToday.getFullYear(), String(localToday.getMonth() + 1).padStart(2, '0'), String(localToday.getDate()).padStart(2, '0')].join('-');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {

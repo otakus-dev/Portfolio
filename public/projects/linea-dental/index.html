@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?review=1">
   <style>body{overflow-x:hidden}.hero h1 span{color:inherit}@media(max-width:640px){.hero-copy,.hero-visual,.contacts>div{min-width:0}.hero h1{font-size:clamp(2.9rem,12.5vw,4.6rem)!important;line-height:.94;letter-spacing:-.055em}.contacts h2{font-size:clamp(3.5rem,15vw,5.5rem)!important;overflow-wrap:anywhere}}</style>
-</head>
+<link rel="stylesheet" href="../../shared/polish.css?v=1"><script src="../../shared/polish.js?v=1" defer></script></head>
 <body>
   <header class="site-header">
     <a class="logo" href="#top" aria-label="Линия, на главную">
@@ -54,7 +54,7 @@
       <div class="section-index reveal">01 / ПОДХОД</div>
       <div class="principle-copy">
         <p class="kicker reveal">Не лечим снимок.<br>Лечим человека.</p>
-        <h2 class="reveal">Медицина становится спокойнее, когда каждый шаг можно объяснить.</h2>
+        <h2 class="reveal">Медицина становится спокойнее, когда каждый шаг можно объяснить</h2>
         <p class="body-copy reveal">Мы объединили врачей разных специализаций, цифровую диагностику и единый стандарт лечения. Пациент видит всю картину, понимает варианты и принимает решение без давления.</p>
       </div>
       <div class="principle-card reveal">
@@ -96,7 +96,7 @@
       </div>
       <div class="tech-copy">
         <div class="section-index reveal">03 / ТЕХНОЛОГИИ</div>
-        <h2 class="reveal">Точность,<br>которую видно.</h2>
+        <h2 class="reveal">Точность,<br>которую видно</h2>
         <p class="reveal">Цифровой протокол сокращает количество визитов и делает результат предсказуемым ещё до начала лечения.</p>
         <ul>
           <li class="reveal"><span>01</span><b>КТ за 30 секунд</b><small>Минимальная лучевая нагрузка</small></li>
@@ -134,7 +134,7 @@
     <section class="contacts" id="contacts">
       <div>
         <div class="section-index reveal">06 / ЗАПИСЬ</div>
-        <h2 class="reveal">Начните<br>с консультации.</h2>
+        <h2 class="reveal">Начните<br>с консультации</h2>
         <p class="reveal">Врач проведёт осмотр, изучит снимки и составит понятный план действий.</p>
         <button class="light-button js-book reveal" type="button">Выбрать время <span>→</span></button>
       </div>
@@ -157,16 +157,16 @@
     <p class="eyebrow">Запись на консультацию</p>
     <h2 id="booking-title">Оставьте контакты</h2>
     <p>Администратор перезвонит и поможет выбрать врача и удобное время.</p>
-    <form id="booking-form">
+    <form id="booking-form"><p class="demo-note">Демонстрация записи: данные никуда не отправляются</p>
       <label>Имя<input name="name" required autocomplete="name" placeholder="Как к вам обращаться"></label>
       <label>Телефон<input name="phone" required type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
       <label>Направление<select name="service"><option>Первичная консультация</option><option>Лечение</option><option>Имплантация</option><option>Эстетическая стоматология</option><option>Ортодонтия</option></select></label>
       <label class="agreement"><input type="checkbox" required><span>Согласен на обработку персональных данных</span></label>
       <button class="solid-button" type="submit">Отправить заявку <span>→</span></button>
     </form>
-    <div class="booking-success" hidden><span>✓</span><h3>Заявка принята</h3><p>Мы перезвоним вам в ближайшее время.</p></div>
+    <div class="booking-success" hidden><span>✓</span><h3>Пробная заявка заполнена</h3><p>Это демонстрация записи. Данные не отправляются в клинику.</p></div>
   </dialog>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?review=1"></script>
 </body>
 </html>

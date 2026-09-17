@@ -31,7 +31,7 @@ function openDialog() {
 function closeDialog() { dialog?.close(); }
 document.querySelectorAll('.open-tour').forEach((button) => button.addEventListener('click', openDialog));
 document.querySelector('.dialog-close')?.addEventListener('click', closeDialog);
-dialog?.addEventListener('click', (event) => { if (event.target === dialog) closeDialog(); });
+dialog?.addEventListener('click', (event) => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDialog(); } });
 dialog?.addEventListener('close', () => body.classList.remove('locked'));
 form?.addEventListener('submit', (event) => {
   event.preventDefault();

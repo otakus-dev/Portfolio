@@ -9,6 +9,11 @@ const searchInput = document.querySelector('#search-input');
 const searchResults = document.querySelector('.search-results');
 const formatter = new Intl.NumberFormat('ru-RU');
 const cart = new Map();
+let cartReturnFocus = null;
+cartDrawer.inert = true;
+cartDrawer.setAttribute('role', 'dialog');
+cartDrawer.setAttribute('aria-modal', 'true');
+cartDrawer.setAttribute('aria-label', 'Корзина');
 
 menuButton.addEventListener('click', () => {
   const open = document.body.classList.toggle('menu-open');
@@ -49,13 +54,13 @@ const searchableProducts = [...document.querySelectorAll('.product')].map((produ
 }));
 
 function renderSearchResults(query) {
-  const normalized = query.trim().toLocaleLowerCase('ru');
+  const normalized = query.trim().toLocaleLowerCase('ru').replaceAll('ё', 'е');
   if (!normalized) {
     searchResults.innerHTML = '<p>Начните вводить название или тип предмета.</p>';
     return;
   }
   const matches = searchableProducts.filter((product) =>
-    `${product.name} ${product.category}`.toLocaleLowerCase('ru').includes(normalized)
+    `${product.name} ${product.category}`.toLocaleLowerCase('ru').replaceAll('ё', 'е').includes(normalized)
   );
   searchResults.innerHTML = matches.length ? matches.map((product) => `
     <button class="search-result" type="button" data-result="${product.id}">
@@ -70,7 +75,7 @@ document.querySelector('.search-button').addEventListener('click', () => {
   window.setTimeout(() => searchInput.focus(), 50);
 });
 document.querySelector('.search-close').addEventListener('click', () => searchDialog.close());
-searchDialog.addEventListener('click', (event) => { if (event.target === searchDialog) searchDialog.close(); });
+searchDialog.addEventListener('click', (event) => { if (event.target === searchDialog) { const r = searchDialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) searchDialog.close(); } });
 searchDialog.addEventListener('close', () => {
   document.body.classList.remove('locked');
   searchInput.value = '';
@@ -104,17 +109,23 @@ function updateCart() {
 }
 
 function openCart() {
+  cartReturnFocus = document.activeElement;
+  cartDrawer.inert = false;
   cartDrawer.classList.add('is-open');
   cartDrawer.setAttribute('aria-hidden', 'false');
   cartOverlay.hidden = false;
   document.body.classList.add('locked');
+  cartDrawer.querySelector('.cart-close').focus();
 }
 
 function closeCart() {
+  if (!cartDrawer.classList.contains('is-open')) return;
   cartDrawer.classList.remove('is-open');
   cartDrawer.setAttribute('aria-hidden', 'true');
   cartOverlay.hidden = true;
   document.body.classList.remove('locked');
+  cartDrawer.inert = true;
+  cartReturnFocus?.focus();
 }
 
 document.querySelectorAll('.add-button').forEach((button) => {
@@ -138,6 +149,13 @@ cartButtons.forEach((button) => button.addEventListener('click', openCart));
 document.querySelector('.cart-close').addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeCart(); });
+cartDrawer.addEventListener('keydown', event => {
+  if (event.key !== 'Tab') return;
+  const controls = [...cartDrawer.querySelectorAll('button,a[href],input,select')].filter(el => !el.disabled && el.getClientRects().length);
+  const first = controls[0], last = controls[controls.length - 1];
+  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+});
 cartItems.addEventListener('click', (event) => {
   const button = event.target.closest('[data-remove]');
   if (!button) return;
@@ -148,7 +166,7 @@ cartItems.addEventListener('click', (event) => {
 document.querySelector('.subscribe form').addEventListener('submit', (event) => {
   event.preventDefault();
   event.currentTarget.reset();
-  document.querySelector('.subscribe-status').textContent = 'Спасибо! Первое письмо уже готовим.';
+  document.querySelector('.subscribe-status').textContent = 'Демонстрация подписки завершена. Адрес не отправлен, письма приходить не будут.';
 });
 
 document.querySelector('.cart-bottom>button').addEventListener('click', () => {
