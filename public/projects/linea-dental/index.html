@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=4">
   <style>body{overflow-x:hidden}.hero h1 span{color:inherit}@media(max-width:640px){.hero-copy,.hero-visual,.contacts>div{min-width:0}.hero h1{font-size:clamp(2.9rem,12.5vw,4.6rem)!important;line-height:.94;letter-spacing:-.055em}.contacts h2{font-size:clamp(3.5rem,15vw,5.5rem)!important;overflow-wrap:anywhere}}</style>
-<link rel="stylesheet" href="../../shared/usability.css?v=1"></head>
+</head>
 <body>
   <header class="site-header">
     <a class="logo" href="#top" aria-label="Линия, на главную">
@@ -157,16 +157,16 @@
     <p class="eyebrow">Запись на консультацию</p>
     <h2 id="booking-title">Оставьте контакты</h2>
     <p>Администратор перезвонит и поможет выбрать врача и удобное время.</p>
-    <p>Демонстрационная форма — используйте тестовые данные. Заявка не отправляется.</p><form id="booking-form">
+    <form id="booking-form">
       <label>Имя<input name="name" required autocomplete="name" placeholder="Как к вам обращаться"></label>
       <label>Телефон<input name="phone" required type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
       <label>Направление<select name="service"><option>Первичная консультация</option><option>Лечение</option><option>Имплантация</option><option>Эстетическая стоматология</option><option>Ортодонтия</option></select></label>
       <label class="agreement"><input type="checkbox" required><span>Согласен на обработку персональных данных</span></label>
       <button class="solid-button" type="submit">Отправить заявку <span>→</span></button>
     </form>
-    <div class="booking-success" hidden><span>✓</span><h3>Пробная заявка заполнена</h3><p>Это демонстрация: запись не создана, данные не отправлены.</p></div>
+    <div class="booking-success" hidden><span>✓</span><h3>Заявка принята</h3><p>Мы перезвоним вам в ближайшее время.</p></div>
   </dialog>
 
   <script src="script.js?v=2"></script>
-<script src="../../shared/usability.js?v=1" defer></script></body>
+</body>
 </html>

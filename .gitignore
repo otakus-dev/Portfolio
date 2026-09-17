@@ -1,7 +1,6 @@
 .qa-edge*/
 *-check*.png
 node_modules/
-.local/
 npm-debug.log*
 .env
 .env.*

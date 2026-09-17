@@ -28,8 +28,7 @@ form.addEventListener('submit', (event) => {
 });
 
 const dateInput = form.elements.date;
-const localDate = new Date();
-dateInput.min = [localDate.getFullYear(), String(localDate.getMonth() + 1).padStart(2, '0'), String(localDate.getDate()).padStart(2, '0')].join('-');
+dateInput.min = new Date().toISOString().slice(0, 10);
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
